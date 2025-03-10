@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Select all elements with 'profile-initial' class
     const profileInitials = document.querySelectorAll(".profile-initial");
-
     profileInitials.forEach((element) => {
         let name = element.getAttribute("data-name");
         if (name) {
-            let initials = name
-                .split(" ")
+            let initials = name.split(" ")
                 .map(word => word[0])
                 .join("")
                 .toUpperCase();
@@ -14,11 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
 /* JS to trigger animations on scroll */
 
 document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll(".hero-section, .project-section, .testimonials-section, .footer");
+    const sections = document.querySelectorAll(".hero-section, .project-section, .features,.dash-container,.testimonials-section,.agents-section, .footer");
     const attributes = document.querySelectorAll(".attribute");
     const testimonials = document.querySelectorAll(".testimonial-card");
 
@@ -47,4 +43,24 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
 });
+
+
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector('.' + this.getAttribute('data-target')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+    function navigateToPage(element) {
+    const targetPage = element.getAttribute("data-target");
+    if (targetPage) {
+    window.location.href = targetPage;
+}
+}
+
+
 

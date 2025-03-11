@@ -11,7 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-/* JS to trigger animations on scroll */
+  // Navbar Scroll Effect
+  window.addEventListener("scroll", function () {
+    let navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
 
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll(".hero-section, .project-section, .features,.dash-container,.testimonials-section,.agents-section, .footer");
